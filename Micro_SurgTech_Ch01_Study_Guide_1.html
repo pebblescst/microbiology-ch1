@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microbiology for Surgical Technologists – Chapter 1 Study Guide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #ECF4FB; color: #1a1a2e; min-height: 100vh; }
+
+  header {
+    background: linear-gradient(135deg, #1B2A4A 0%, #2C3E6B 60%, #1A5276 100%);
+    color: white; padding: 22px 30px; text-align: center;
+  }
+  header h1 { font-size: 1.55rem; font-weight: bold; letter-spacing: 0.5px; }
+  header p { font-size: 0.88rem; margin-top: 5px; opacity: 0.85; }
+  header .badge {
+    display: inline-block; background: #17A589; color: white;
+    border-radius: 20px; padding: 3px 14px; font-size: 0.78rem;
+    margin-top: 8px; letter-spacing: 0.4px;
+  }
+
+  .tab-bar {
+    display: flex; flex-wrap: wrap; justify-content: center; background: #162140;
+    padding: 8px 14px 0; gap: 4px;
+  }
+  .tab-bar button {
+    background: transparent; border: none; color: #A9C3DD;
+    padding: 9px 14px; cursor: pointer; font-size: 0.82rem;
+    border-radius: 6px 6px 0 0; font-family: Arial, sans-serif;
+    border-bottom: 3px solid transparent; transition: all 0.2s;
+  }
+  .tab-bar button:hover { background: #1e3255; color: #fff; }
+  .tab-bar button.active {
+    background: #ECF4FB; color: #1B2A4A; font-weight: bold;
+    border-bottom: 3px solid #17A589;
+  }
+
+  .tab-content { display: none; padding: 24px 28px; max-width: 960px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  h2 { color: #1B2A4A; font-size: 1.25rem; margin-bottom: 14px; border-left: 4px solid #17A589; padding-left: 10px; }
+  h3 { color: #1A5276; font-size: 1.02rem; margin: 16px 0 8px; }
+
+  .card {
+    background: white; border-radius: 8px; padding: 18px 20px;
+    margin-bottom: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border-left: 4px solid #2471A3;
+  }
+  .card.teal { border-left-color: #17A589; }
+  .card.gold  { border-left-color: #D4AC0D; }
+  .card.red   { border-left-color: #C0392B; }
+  .card.purple{ border-left-color: #7D3C98; }
+
+  .card-title { font-weight: bold; color: #1B2A4A; font-size: 0.97rem; margin-bottom: 6px; }
+  .card-date  { display: inline-block; background: #2471A3; color: white; border-radius: 4px; padding: 1px 8px; font-size: 0.75rem; margin-bottom: 6px; }
+  .card p, .card li { font-size: 0.88rem; line-height: 1.6; color: #2c3e50; }
+  .card ul { margin-left: 16px; margin-top: 4px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media(max-width:680px){ .two-col { grid-template-columns: 1fr; } }
+
+  .highlight-box {
+    background: #D5EEF8; border-radius: 8px; padding: 14px 18px;
+    margin: 14px 0; font-size: 0.88rem; line-height: 1.6; color: #154360;
+    border: 1px solid #A9CCE3;
+  }
+  .highlight-box strong { color: #1B2A4A; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content:''; position:absolute; left:10px; top:0; bottom:0; width:3px; background:#A9C3DD; border-radius:2px; }
+  .tl-item { position:relative; margin-bottom:18px; }
+  .tl-dot { position:absolute; left:-24px; top:4px; width:14px; height:14px; border-radius:50%; background:#17A589; border:2px solid white; box-shadow:0 0 0 2px #17A589; }
+  .tl-year { font-size:0.78rem; font-weight:bold; color:#2471A3; }
+  .tl-text { font-size:0.86rem; color:#2c3e50; line-height:1.5; }
+
+  /* Key Terms */
+  .term-grid { display:grid; grid-template-columns: repeat(auto-fill,minmax(270px,1fr)); gap:12px; }
+  .term-card {
+    background:white; border-radius:7px; padding:14px; box-shadow:0 2px 5px rgba(0,0,0,0.07);
+    cursor:pointer; border-top: 3px solid #2471A3; transition:box-shadow 0.2s;
+  }
+  .term-card:hover { box-shadow:0 4px 12px rgba(0,0,0,0.14); }
+  .term-front { font-weight:bold; color:#1B2A4A; font-size:0.92rem; }
+  .term-back { display:none; font-size:0.83rem; color:#444; margin-top:8px; line-height:1.5; border-top:1px solid #eee; padding-top:8px; }
+  .term-card.open .term-back { display:block; }
+  .term-hint { font-size:0.72rem; color:#888; margin-top:4px; }
+
+  /* Quiz */
+  .quiz-q { background:white; border-radius:8px; padding:18px 20px; margin-bottom:18px; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
+  .quiz-q p { font-weight:bold; color:#1B2A4A; margin-bottom:12px; font-size:0.93rem; }
+  .quiz-opt { display:block; width:100%; text-align:left; background:#F0F4F8; border:1px solid #CBD8E5; border-radius:5px; padding:9px 14px; margin:5px 0; cursor:pointer; font-size:0.87rem; font-family:Arial,sans-serif; transition:background 0.15s; }
+  .quiz-opt:hover { background:#D5EEF8; }
+  .quiz-opt.correct { background:#D5F5E3; border-color:#27AE60; color:#1a5e2a; font-weight:bold; }
+  .quiz-opt.wrong   { background:#FDECEA; border-color:#E74C3C; color:#7B241C; }
+  .quiz-feedback { font-size:0.82rem; margin-top:8px; padding:6px 10px; border-radius:4px; display:none; }
+  .quiz-feedback.show { display:block; }
+  .quiz-feedback.ok  { background:#D5F5E3; color:#1a5e2a; }
+  .quiz-feedback.no  { background:#FDECEA; color:#7B241C; }
+  #quiz-score { text-align:center; padding:16px; font-size:1rem; font-weight:bold; color:#1B2A4A; display:none; }
+  #submit-quiz { display:block; margin:18px auto 0; background:#17A589; color:white; border:none; border-radius:6px; padding:10px 34px; font-size:0.95rem; cursor:pointer; font-family:Arial,sans-serif; }
+  #submit-quiz:hover { background:#148F77; }
+
+  .section-intro { font-size:0.89rem; color:#2c3e50; line-height:1.6; margin-bottom:16px; }
+  .icon-label { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+  .icon-circle { min-width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.9rem; background:#2471A3; color:white; font-weight:bold; }
+  .icon-circle.teal  { background:#17A589; }
+  .icon-circle.gold  { background:#D4AC0D; }
+  .icon-circle.red   { background:#C0392B; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Microbiology for Surgical Technologists — 3rd Edition</h1>
+  <p>Rodriguez &bull; Chapter 1: Introduction to Microbiology</p>
+  <span class="badge">&#9877; CST Board Prep &nbsp;&bull;&nbsp; ATA College</span>
+</header>
+
+<div class="tab-bar">
+  <button class="active" onclick="showTab('overview',this)">Chapter Overview</button>
+  <button onclick="showTab('pioneers',this)">Early Pioneers</button>
+  <button onclick="showTab('golden',this)">Golden Age</button>
+  <button onclick="showTab('modern',this)">Modern Era</button>
+  <button onclick="showTab('precautions',this)">Standard Precautions</button>
+  <button onclick="showTab('timeline',this)">Timeline</button>
+  <button onclick="showTab('terms',this)">Key Terms</button>
+  <button onclick="showTab('quiz',this)">Quiz</button>
+</div>
+
+<!-- ====== TAB 1: OVERVIEW ====== -->
+<div id="overview" class="tab-content active">
+  <h2>Chapter Overview &amp; Clinical Significance</h2>
+  <p class="section-intro">Chapter 1 establishes the foundational connection between microbiology and surgical technology. Understanding microbial science is not optional for the surgical technologist — it is the scientific basis for aseptic technique, sterile field management, and patient safety.</p>
+
+  <div class="two-col">
+    <div class="card teal">
+      <div class="card-title">&#128203; Surgical Conscience</div>
+      <p>The guiding principle that requires surgical technologists to <strong>disclose breaks in sterile technique</strong>, whether observed by others or not, and to adhere to best practices in all situations for the benefit of the patient.</p>
+      <ul style="margin-top:8px;">
+        <li>Cannot see sterility — must trust technique</li>
+        <li>Applies to traditional OR, hybrid rooms, and outpatient centers</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">&#128739; Why Microbiology Matters in the OR</div>
+      <ul>
+        <li>Foundation for recognizing sources of infection</li>
+        <li>Basis for aseptic and sterile techniques</li>
+        <li>Supports prevention of surgical site infections (SSIs)</li>
+        <li>Enables effective barrier/PPE use</li>
+        <li>Guides response when chain of infection is identified</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Blood-Borne Pathogens &amp; Personal Protective Equipment</h3>
+  <div class="two-col">
+    <div class="card red">
+      <div class="card-title">Blood-Borne Pathogens (BBP)</div>
+      <p>Infectious microorganisms found in human blood that can cause disease in humans. Transmission can occur via needlesticks, sharps injuries, or mucous membrane exposure.</p>
+    </div>
+    <div class="card red">
+      <div class="card-title">OPIMs</div>
+      <p><strong>Other Potentially Infectious Materials</strong> — pathogens transmitted by mechanisms other than blood, such as air, ingestion, or direct contact.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>PPE in the OR</strong> — PPE provides a <strong>two-way barrier</strong>: protecting the healthcare worker from patients AND protecting patients from healthcare workers. Components include masks, gowns, gloves, eye shields, hats, shoe covers, lead shields, and laser goggles.
+  </div>
+
+  <h3>Infection Prevention Responsibilities</h3>
+  <div class="card gold">
+    <ul>
+      <li>Transmission cannot always be prevented, but all available measures should be used to break the chain of infection</li>
+      <li>Sterility cannot be seen — adherence to principles of asepsis and sterile technique is critical</li>
+      <li>Broad educational foundation in microbiology enhances skill and proper technique</li>
+      <li>Infection can range from minor annoyance to life-threatening illness</li>
+    </ul>
+  </div>
+
+  <h3>Chapter Objectives</h3>
+  <div class="card">
+    <ul>
+      <li>Define key terms related to microbiology and surgical technology</li>
+      <li>Discuss responsibilities of sterile surgical team members in preventing disease transmission</li>
+      <li>Discuss significant historical contributions from pioneers in microbiology</li>
+      <li>Relate discoveries from the 20th-century timeline to current public health concerns</li>
+      <li>Explain how theories of spontaneous generation and abiogenesis were disproved</li>
+      <li>Discuss the scientific impact of Koch's postulates, including exceptions</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ====== TAB 2: EARLY PIONEERS ====== -->
+<div id="pioneers" class="tab-content">
+  <h2>Early Pioneers of Microbiology (Pre-1800s)</h2>
+  <p class="section-intro">These scientists laid the groundwork — developing microscopy, challenging spontaneous generation, and first linking microbes to disease.</p>
+
+  <div class="card">
+    <div class="card-date">1546</div>
+    <div class="card-title">Girolamo Fracastoro</div>
+    <p>First to apply scientific principles to the concept that tiny, unseen organisms spread disease. In his book <em>De Contagione et Contagiais Morbis</em>, he described transmission modes:</p>
+    <ul>
+      <li>Direct contact between infected host and others</li>
+      <li>Indirect contact</li>
+      <li>Carried on clothing</li>
+      <li>Through the air</li>
+    </ul>
+  </div>
+
+  <div class="card teal">
+    <div class="card-date">1665</div>
+    <div class="card-title">Robert Hooke</div>
+    <ul>
+      <li>Designed and built a compound microscope</li>
+      <li>Published <em>Micrographia</em> (1665) — first to use the term <strong>"cell"</strong></li>
+      <li>Established cell theory: all living things are composed of cells</li>
+      <li>Later work developed understanding of elasticity</li>
+    </ul>
+  </div>
+
+  <div class="card gold">
+    <div class="card-date">1673–1723</div>
+    <div class="card-title">Antonie van Leeuwenhoek — "Father of Microbiology"</div>
+    <ul>
+      <li>First to observe and record previously invisible bacteria, protozoa, and other cells from rainwater, saliva, and semen — called them <strong>"animalcules"</strong></li>
+      <li>In 1723, submitted the first accurate drawings of bacteria seen with a simple microscope to the Royal Society of London</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-date">1668</div>
+    <div class="card-title">Francesco Redi — Challenging Abiogenesis</div>
+    <p>Set out to disprove <strong>abiogenesis</strong> (life spontaneously originates from nonliving substances).</p>
+    <ul>
+      <li>Experiment: decaying meat in sealed vs. open jars</li>
+      <li>Maggots appeared in open jars — none in sealed jars</li>
+      <li>Critics argued fresh oxygen was required for spontaneous generation</li>
+      <li>Follow-up: used fine mesh gauze (allowing oxygen) — same results</li>
+      <li>Beliefs were slow to change despite evidence</li>
+    </ul>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-date">1700s</div>
+      <div class="card-title">Needham &amp; Spallanzani</div>
+      <p>Both were priests. Needham attempted to prove a "vital force" for spontaneous generation. Spallanzani attempted to disprove it through scientific experimentation. Their debate advanced scientific method.</p>
+    </div>
+    <div class="card teal">
+      <div class="card-date">Early 1800s</div>
+      <div class="card-title">Edward Jenner — "Father of Vaccines"</div>
+      <ul>
+        <li>First to effectively provide immunity through vaccination for smallpox</li>
+        <li>Noted milkmaids who contracted cowpox never contracted smallpox</li>
+        <li>Inoculated a boy with cowpox — after recovery, boy showed immunity to smallpox</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card red">
+    <div class="card-date">Mid-1800s</div>
+    <div class="card-title">Ignaz Semmelweis — The Handwashing Pioneer</div>
+    <p>Physician in a maternity hospital who made the critical connection between handwashing and infection prevention:</p>
+    <ul>
+      <li>Observed 20–30% maternal death rate from puerperal fever</li>
+      <li>Found that patients seen by medical students (who came from autopsies) had much higher infection rates than those seen by midwives (who washed hands rigorously)</li>
+      <li>Implemented <strong>chlorinated solutions for hand hygiene</strong> — dropped maternal mortality rate to just over 1%</li>
+      <li>Failed to inspire peers; was institutionalized</li>
+      <li>Died of a surgical site infection in 1865 — tragically ironic</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ====== TAB 3: GOLDEN AGE ====== -->
+<div id="golden" class="tab-content">
+  <h2>The Golden Age of Microbiology</h2>
+  <p class="section-intro">The mid-to-late 1800s produced the Germ Theory of Disease, aseptic technique in surgery, and the foundation of modern microbiology laboratory science.</p>
+
+  <div class="card gold">
+    <div class="card-date">Mid-1800s</div>
+    <div class="card-title">Louis Pasteur — Germ Theory &amp; Pasteurization</div>
+    <p>His experiments disproved abiogenesis and vital force theories, leading to major contributions:</p>
+    <ul>
+      <li>Discovered the link between yeasts and alcohol — revealed the difference between <strong>aerobic</strong> and <strong>anaerobic</strong> bacteria</li>
+      <li>Proved that food spoilage is caused by microorganisms and could be prevented by low-heating — coined <strong>pasteurization</strong></li>
+      <li>Discovered a protozoan as the <strong>etiology</strong> (cause) of a silkworm disease</li>
+      <li>Used a rabies vaccine on a child, risking his professional license</li>
+    </ul>
+  </div>
+
+  <div class="card teal">
+    <div class="card-date">Late 1860s</div>
+    <div class="card-title">Joseph Lister — "Father of Modern Surgery"</div>
+    <p>A surgeon who embraced Pasteur's germ-disease link and transformed surgical practice:</p>
+    <ul>
+      <li>Established the first principles of <strong>aseptic technique</strong> to protect patients, doctors, and personnel</li>
+      <li>Used <strong>phenol (carbolic acid)</strong> as a skin scrub, pre-op skin prep, on dressings, and as an aerosolized OR spray</li>
+      <li>Insisted on surgical gowns and gloves</li>
+      <li>Required disinfection and boiling of surgical instruments between procedures</li>
+    </ul>
+    <div class="highlight-box" style="margin-top:10px;">
+      <strong>OR Connection:</strong> Every pre-operative skin prep, every sterile gown and glove donned before surgery, every instrument sterility protocol — these trace directly to Lister's principles.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-date">1876 onward</div>
+    <div class="card-title">Robert Koch — Bacteriology &amp; Koch's Postulates</div>
+    <p>Became famous for discovering rod-shaped bacilli as the cause of anthrax in cattle, then went further:</p>
+    <ul>
+      <li>Developed <strong>Koch's Postulates</strong> — a set of experimental steps linking a specific microorganism to a specific disease (still used today)</li>
+      <li>Developed the <strong>pure culture technique</strong> using solid agar in Petri dishes and the streak plate method</li>
+      <li>Demonstrated that different species of bacteria cause different types of infections</li>
+      <li>Paved the way for <strong>Gram staining</strong> methods for classifying microbial species</li>
+      <li>His students included Paul Ehrlich, later known as the "Father of Chemotherapy"</li>
+    </ul>
+  </div>
+
+  <h3>Koch's Postulates</h3>
+  <div class="card teal">
+    <p style="margin-bottom:10px;">A series of experimental steps used to link a specific microorganism to a specific disease:</p>
+    <div class="icon-label">
+      <div class="icon-circle">1</div>
+      <div><strong>Presence:</strong> The microorganism must be present in all cases of the disease</div>
+    </div>
+    <div class="icon-label">
+      <div class="icon-circle">2</div>
+      <div><strong>Isolation:</strong> It must be isolated from the diseased host and grown in pure culture</div>
+    </div>
+    <div class="icon-label">
+      <div class="icon-circle">3</div>
+      <div><strong>Inoculation:</strong> The cultured microorganism must cause disease when introduced into a healthy host</div>
+    </div>
+    <div class="icon-label">
+      <div class="icon-circle">4</div>
+      <div><strong>Re-isolation:</strong> The microorganism must be re-isolated from the experimentally diseased host and shown to be identical to the original</div>
+    </div>
+    <p style="margin-top:10px; font-size:0.84rem; color:#666;">Note: Exceptions exist related to specific bacteria and diseases (e.g., some pathogens cannot be cultured, asymptomatic carriers).</p>
+  </div>
+</div>
+
+<!-- ====== TAB 4: MODERN ERA ====== -->
+<div id="modern" class="tab-content">
+  <h2>The Modern Era of Microbiology</h2>
+  <p class="section-intro">The 20th and 21st centuries brought exponential advances in bacteriology, virology, antibiotics, and genetics — along with recognition of previously overlooked contributors.</p>
+
+  <div class="card teal">
+    <div class="card-date">1933–1936</div>
+    <div class="card-title">Ruth Ella Moore</div>
+    <ul>
+      <li>First African-American to receive a PhD in bacteriology (1933)</li>
+      <li>First African-American to join the American Society of Microbiology (1936)</li>
+      <li>Led extensive research and eventual treatment of tuberculosis (2nd highest cause of death in the U.S. at the time)</li>
+      <li>Published on immunology, dental caries, and blood type-associated diseases in African-Americans</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-date">1944</div>
+    <div class="card-title">Elizabeth Bugie — Streptomycin</div>
+    <ul>
+      <li>Part of a Rutgers University research team that developed <strong>streptomycin</strong> — an antibiotic used to treat deadly tuberculosis and other serious infections</li>
+      <li>Her name was removed from the patent by the lead scientist, who felt she would "only get married and have a family"</li>
+      <li>Her male colleagues were awarded the Nobel Prize for Medicine — she was not recognized despite her contributions</li>
+    </ul>
+  </div>
+
+  <div class="card gold">
+    <div class="card-date">1964</div>
+    <div class="card-title">June Almeida — First Identification of Coronavirus</div>
+    <ul>
+      <li>Scottish-born immigrant to Canada; never completed her undergraduate degree but became a skilled laboratory technician</li>
+      <li>Recognized for techniques for identification of microscopic particles</li>
+      <li>Developed the use of antibodies to identify viruses under magnification</li>
+      <li>First identified the <strong>coronavirus</strong> in 1964 using the electron microscope — the same type of viral pathogen responsible for the COVID-19 pandemic</li>
+    </ul>
+  </div>
+
+  <h3>A Century of Scientific Breakthroughs</h3>
+  <div class="highlight-box">
+    Over the past 120 years, discoveries in microbiology, bacteriology, virology, and genetics have developed exponentially into the 21st century. The microbial world is incredibly resourceful in its survival methods — the human race must find a way to coexist with it. Awareness of disease transmission mechanisms is critical for all healthcare workers, especially those in sterile surgical environments.
+  </div>
+
+  <div class="two-col">
+    <div class="card red">
+      <div class="card-title">Key 20th-Century Terms</div>
+      <ul>
+        <li><strong>Antibiotic</strong> — substance that kills or inhibits bacterial growth</li>
+        <li><strong>Penicillin</strong> — first widely used antibiotic (Fleming, 1928)</li>
+        <li><strong>Quarantine</strong> — isolation to prevent disease spread</li>
+        <li><strong>Bioterrorism</strong> — deliberate use of pathogens to cause harm</li>
+        <li><strong>Germ warfare</strong> — weaponization of biological agents</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Lessons for the Surgical Technologist</div>
+      <ul>
+        <li>History repeats — COVID-19 echoed past pandemics</li>
+        <li>Patterns exist for outbreak, treatment, eradication, and recurrence</li>
+        <li>Global interconnectedness accelerates disease transmission</li>
+        <li>Science builds on itself — today's SSI prevention protocols stand on centuries of research</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ====== TAB 5: STANDARD PRECAUTIONS ====== -->
+<div id="precautions" class="tab-content">
+  <h2>Standard Precautions &amp; Infection Control</h2>
+  <p class="section-intro">Standard Precautions are the baseline infection prevention practices applied to ALL patients in ALL healthcare settings, regardless of known infection status. Developed by CDC/HICPAC.</p>
+
+  <div class="card gold">
+    <div class="card-title">&#127961; Key Organizations</div>
+    <ul>
+      <li><strong>CDC</strong> — Centers for Disease Control and Prevention</li>
+      <li><strong>HICPAC</strong> — Healthcare Infection Control Practices Advisory Committee (a special section within the CDC)</li>
+      <li>Baseline document: <em>2007 Guideline for Isolation Precautions: Preventing Transmission of Infectious Agents in Healthcare Settings</em> (updated 2019)</li>
+    </ul>
+  </div>
+
+  <h3>What Standard Precautions Cover</h3>
+  <div class="card teal">
+    <p style="margin-bottom:10px;">Standard Precautions combine <strong>Universal Precautions (UP)</strong> and <strong>Body Substance Isolation (BSI)</strong>. They apply to:</p>
+    <ul>
+      <li>All blood and body fluids</li>
+      <li>All secretions and excretions (except sweat)</li>
+      <li>Non-intact skin</li>
+      <li>Mucous membranes</li>
+    </ul>
+    <p style="margin-top:10px;"><em>All of the above may contain transmissible infectious agents.</em></p>
+  </div>
+
+  <h3>Elements of Standard Precautions</h3>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Core Elements</div>
+      <ul>
+        <li>Hand hygiene</li>
+        <li>Gloves (when contact with blood/body fluids expected)</li>
+        <li>Gown</li>
+        <li>Mask, eye protection, or face shield (based on anticipated exposure)</li>
+        <li>Safe injection practices</li>
+        <li>Proper handling of contaminated equipment</li>
+      </ul>
+    </div>
+    <div class="card teal">
+      <div class="card-title">2019 Additions to Standard Precautions</div>
+      <ul>
+        <li><strong>Respiratory Hygiene / Cough Etiquette</strong></li>
+        <li><strong>Safe injection practices</strong> (reinforced)</li>
+        <li><strong>Masks for spinal/epidural procedures</strong> — catheter insertion or injection into spinal or epidural spaces (myelogram, spinal/epidural anesthesia)</li>
+      </ul>
+      <p style="margin-top:8px; font-size:0.82rem; color:#666;">These newer elements focus on protection of <em>patients</em>, not just healthcare workers.</p>
+    </div>
+  </div>
+
+  <h3>Transmission-Based Precautions</h3>
+  <div class="card red">
+    <p>Additional measures taken <strong>when the patient's disease or infection status is known</strong>. These are layered on top of Standard Precautions:</p>
+    <ul style="margin-top:8px;">
+      <li><strong>Contact Precautions</strong> — direct/indirect contact transmission (MRSA, C. diff)</li>
+      <li><strong>Droplet Precautions</strong> — large respiratory droplets (influenza, pertussis)</li>
+      <li><strong>Airborne Precautions</strong> — small airborne particles (TB, measles, chickenpox)</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box">
+    <strong>HAI Reimbursement Policy:</strong> The Centers for Medicare and Medicaid Services (CMS) have revised policies so hospitals must bear the costs of treatment for preventable healthcare-associated infections (HAIs) — including surgical site infections (SSIs). This makes infection prevention directly linked to hospital financial accountability.
+  </div>
+
+  <h3>OR-Specific Aseptic Techniques (Discussion Activity Topics)</h3>
+  <div class="card">
+    <ul>
+      <li>Surgical scrub / hand antisepsis prior to gowning and gloving</li>
+      <li>Sterile gowning and closed gloving technique</li>
+      <li>Sterile draping of patient and back table</li>
+      <li>Maintenance of sterile field integrity throughout the procedure</li>
+      <li>Required OR personnel vaccinations (Hepatitis B, influenza, etc.)</li>
+      <li>Correct disposal of sharps and contaminated materials</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ====== TAB 6: TIMELINE ====== -->
+<div id="timeline" class="tab-content">
+  <h2>Historical Timeline of Microbiology</h2>
+  <p class="section-intro">Key discoveries from ancient times to the modern era, relevant to surgical technology and infection prevention.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1546</div>
+      <div class="tl-text"><strong>Fracastoro</strong> — First scientific description of disease transmission by tiny invisible organisms (<em>De Contagione</em>)</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1665</div>
+      <div class="tl-text"><strong>Robert Hooke</strong> — Publishes <em>Micrographia</em>; first use of the term "cell"; advances compound microscopy</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1668</div>
+      <div class="tl-text"><strong>Francesco Redi</strong> — Disproves spontaneous generation through controlled experiments with decaying meat</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">1673</div>
+      <div class="tl-text"><strong>van Leeuwenhoek</strong> — First to observe bacteria and microorganisms using a simple microscope; calls them "animalcules"</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Early 1800s</div>
+      <div class="tl-text"><strong>Edward Jenner</strong> — Develops smallpox vaccination using cowpox inoculation; "Father of Vaccines"</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">Mid-1800s</div>
+      <div class="tl-text"><strong>Ignaz Semmelweis</strong> — Discovers link between handwashing and prevention of puerperal fever; implements chlorinated hand hygiene; reduces maternal mortality from ~25% to ~1%</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#D4AC0D;box-shadow:0 0 0 2px #D4AC0D;"></div>
+      <div class="tl-year">Mid-1800s</div>
+      <div class="tl-text"><strong>Louis Pasteur</strong> — Germ Theory of Disease; pasteurization; rabies vaccine; disproves abiogenesis definitively</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#D4AC0D;box-shadow:0 0 0 2px #D4AC0D;"></div>
+      <div class="tl-year">Late 1860s</div>
+      <div class="tl-text"><strong>Joseph Lister</strong> — First aseptic surgical techniques; carbolic acid OR prep; surgical gowns/gloves/instrument sterilization; "Father of Modern Surgery"</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#D4AC0D;box-shadow:0 0 0 2px #D4AC0D;"></div>
+      <div class="tl-year">1876</div>
+      <div class="tl-text"><strong>Robert Koch</strong> — Discovers anthrax bacillus; develops Koch's Postulates; pure culture technique; agar plates; enables Gram staining</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#7D3C98;box-shadow:0 0 0 2px #7D3C98;"></div>
+      <div class="tl-year">1928</div>
+      <div class="tl-text"><strong>Alexander Fleming</strong> — Discovers penicillin; opens era of antibiotic medicine</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#7D3C98;box-shadow:0 0 0 2px #7D3C98;"></div>
+      <div class="tl-year">1933</div>
+      <div class="tl-text"><strong>Ruth Ella Moore</strong> — First African-American PhD in bacteriology; TB research; immunology publications</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#7D3C98;box-shadow:0 0 0 2px #7D3C98;"></div>
+      <div class="tl-year">1944</div>
+      <div class="tl-text"><strong>Elizabeth Bugie &amp; team</strong> — Develop streptomycin; first effective treatment for tuberculosis</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#7D3C98;box-shadow:0 0 0 2px #7D3C98;"></div>
+      <div class="tl-year">1964</div>
+      <div class="tl-text"><strong>June Almeida</strong> — First identifies the coronavirus using electron microscopy</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#C0392B;box-shadow:0 0 0 2px #C0392B;"></div>
+      <div class="tl-year">2007 / 2019</div>
+      <div class="tl-text"><strong>CDC/HICPAC</strong> — Guideline for Isolation Precautions published and updated; Standard Precautions refined to include respiratory hygiene and spinal procedure mask requirements</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#C0392B;box-shadow:0 0 0 2px #C0392B;"></div>
+      <div class="tl-year">2020–present</div>
+      <div class="tl-text"><strong>COVID-19 Pandemic</strong> — Global illustration of coronavirus (first identified 1964), disease transmission principles, and the critical importance of Standard Precautions in all healthcare settings</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== TAB 7: KEY TERMS ====== -->
+<div id="terms" class="tab-content">
+  <h2>Key Terms — Chapter 1</h2>
+  <p class="section-intro">Click any card to reveal the definition. These terms reflect the key vocabulary from all four sections of Chapter 1.</p>
+
+  <div class="term-grid">
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Abiogenesis</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The theory (now disproved) that life spontaneously originates from nonliving substances. Challenged by Redi's experiments (1668) and finally refuted by Pasteur.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Aerobic</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">Requiring oxygen to live and grow. Aerobic bacteria use oxygen in their metabolic processes. Contrast with anaerobic.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Anaerobic</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">Able to live and grow in the absence of oxygen. Some bacteria can cause infection in closed spaces such as abscesses where oxygen is limited.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Antibiotic</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">A substance produced by a microorganism or synthesized chemically that kills or inhibits the growth of other microorganisms, particularly bacteria.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Aseptic Technique</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">Principles and practices used to prevent contamination of sterile fields, instruments, and tissues. First established by Joseph Lister in the late 1860s. Foundational to surgical technology practice.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Bioterrorism</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The deliberate release or use of biological agents (bacteria, viruses, toxins) to cause harm to people, animals, or the environment for terrorist or warfare purposes.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Blood-Borne Pathogens (BBP)</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">Infectious microorganisms found in human blood that can cause diseased conditions in humans. Examples include HIV and Hepatitis B and C viruses. A major occupational hazard for surgical technologists.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Cell Theory</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The fundamental biological principle that all living things are composed of cells. The term "cell" was first used by Robert Hooke in 1665.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Chemotherapy</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">In this context, the use of chemical substances to treat disease (especially infection), pioneered by Paul Ehrlich — "Father of Chemotherapy" and student of Robert Koch.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Endemic</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">A disease or condition that is consistently present in a particular geographic area or population at a predictable, relatively stable rate.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Epidemic</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">A sudden, widespread occurrence of a disease in a community or region, affecting more people than would normally be expected. Greater in scale than endemic but generally confined to one region.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Etiology</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The cause or origin of a disease or condition. For example, Pasteur discovered the etiology of a silkworm disease to be a protozoan organism.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Germ Theory of Disease</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The theory established by Pasteur and Koch stating that specific microorganisms are the cause of specific infectious diseases. This theory revolutionized medicine and is the basis of modern infection control.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Germ Warfare</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The weaponization and deliberate use of biological agents (bacteria, viruses, toxins) as weapons of war or mass destruction against human populations.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Gram Stain</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">A laboratory staining technique developed by Hans Gram using Koch's culture methods to classify bacteria into Gram-positive (purple) and Gram-negative (pink) based on cell wall characteristics. Critical for identifying pathogens.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Immunity</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The ability of an organism to resist a specific infection or toxin due to the presence of specific antibodies or sensitized white blood cells. Jenner demonstrated it with smallpox vaccination.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Immunocompromised</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">Having a weakened or impaired immune system, making a person more susceptible to infection. Surgical patients may be immunocompromised due to disease, medications, or surgical stress — requiring heightened infection prevention.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Inoculated</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">Introduced a pathogen or vaccine into the body to produce immunity or study the organism's effects. Jenner inoculated a child with cowpox to confer smallpox immunity.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Koch's Postulates</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">A set of four experimental criteria developed by Robert Koch to establish that a specific microorganism causes a specific disease. Still used in microbiology labs today, with recognized exceptions.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">OPIMs</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">Other Potentially Infectious Materials — pathogens transmitted by mechanisms other than blood, such as air, ingestion, or direct contact. Includes body fluids, mucous membranes, and non-intact skin.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Pandemic</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">An epidemic that spreads across multiple countries or continents, affecting a large number of people worldwide. COVID-19 (2020) is the most recent example.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Pasteurization</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The process of low-heating food, milk, or beverages to destroy harmful bacteria without significantly changing flavor. Developed by Louis Pasteur after discovering the link between microorganisms and food spoilage.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Penicillin</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The first widely used antibiotic, discovered by Alexander Fleming in 1928. It opened the era of antibiotic medicine and transformed treatment of bacterial infections globally.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Personal Protective Equipment (PPE)</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">Equipment worn to create a barrier against infection transmission. In the OR, PPE includes masks, gowns, gloves, eye shields, hats, shoe covers, and specialized items like lead shields or laser goggles. Provides two-way protection.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Pure Culture Technique</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">A laboratory method developed by Robert Koch to isolate and grow a single species of microorganism using solid agar in Petri dishes and the streak plate method. Essential for identifying specific pathogens.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Puerperal Fever</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">Also called "childbed fever" — a serious bacterial infection of the reproductive tract following childbirth. Semmelweis linked it to unwashed hands of physicians and reduced deaths from ~25% to ~1% with chlorinated handwashing.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Quarantine</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The isolation of people, animals, or goods that have been exposed to a contagious disease, to prevent the potential spread of infection to others.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Sterilant</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">A chemical or physical agent capable of destroying all forms of microbial life, including bacterial spores. Sterilants are used to process surgical instruments and are distinct from disinfectants.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Surgical Conscience</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The ethical guiding principle requiring surgical technologists to disclose all breaks in sterile technique — whether observed by others or not — and to adhere consistently to best practices for the patient's benefit.</div>
+    </div>
+    <div class="term-card" onclick="this.classList.toggle('open')">
+      <div class="term-front">Vaccination</div>
+      <div class="term-hint">Click to reveal</div>
+      <div class="term-back">The process of administering a vaccine to stimulate the immune system to develop protection against a specific disease. First demonstrated effectively by Edward Jenner with smallpox in the early 1800s.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== TAB 8: QUIZ ====== -->
+<div id="quiz" class="tab-content">
+  <h2>Chapter 1 Practice Quiz</h2>
+  <p class="section-intro" style="margin-bottom:20px;">Select the best answer for each question. Submit when finished to see your score.</p>
+
+  <div class="quiz-q">
+    <p>1. Which scientist is known as the "Father of Microbiology" for first observing and recording bacteria and protozoa?</p>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Robert Hooke</button>
+    <button class="quiz-opt" data-correct="true"  onclick="pickOpt(this)">Antonie van Leeuwenhoek</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Louis Pasteur</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Girolamo Fracastoro</button>
+    <div class="quiz-feedback ok">&#10003; Correct! Van Leeuwenhoek first observed bacteria, protozoa, and other cells (calling them "animalcules") and submitted accurate drawings to the Royal Society of London in 1723.</div>
+    <div class="quiz-feedback no">&#10007; Incorrect. Antonie van Leeuwenhoek is the "Father of Microbiology" — he was the first to observe and record bacteria using a simple microscope.</div>
+  </div>
+
+  <div class="quiz-q">
+    <p>2. Ignaz Semmelweis reduced maternal mortality from puerperal fever to approximately 1% by implementing which measure?</p>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Wearing surgical gloves during deliveries</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Isolating infected patients in separate wards</button>
+    <button class="quiz-opt" data-correct="true"  onclick="pickOpt(this)">Using chlorinated solutions for hand hygiene by physicians and students</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Sterilizing instruments between procedures</button>
+    <div class="quiz-feedback ok">&#10003; Correct! Semmelweis discovered that physicians coming directly from autopsies were spreading infection. Chlorinated handwashing dropped maternal mortality from ~25% to just over 1%.</div>
+    <div class="quiz-feedback no">&#10007; Incorrect. Semmelweis implemented chlorinated solution handwashing for physicians and students between patient contacts, dramatically reducing puerperal fever deaths.</div>
+  </div>
+
+  <div class="quiz-q">
+    <p>3. Joseph Lister is known as the "Father of Modern Surgery" primarily because he:</p>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Developed the pure culture technique using agar plates</button>
+    <button class="quiz-opt" data-correct="true"  onclick="pickOpt(this)">Established the first principles of aseptic technique and used carbolic acid in the OR</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Discovered the link between microbes and fermentation</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Performed the first successful organ transplant</button>
+    <div class="quiz-feedback ok">&#10003; Correct! Lister applied Pasteur's Germ Theory to surgery, establishing aseptic technique using phenol (carbolic acid) for skin prep, dressings, and OR sprays, plus requiring gowns, gloves, and instrument sterilization.</div>
+    <div class="quiz-feedback no">&#10007; Incorrect. Lister established the first principles of aseptic technique and used carbolic acid (phenol) in the OR to prevent surgical infections.</div>
+  </div>
+
+  <div class="quiz-q">
+    <p>4. Which of the following best describes "surgical conscience"?</p>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">The ability to perform surgical procedures without supervision</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Awareness of all instruments on the sterile field during a procedure</button>
+    <button class="quiz-opt" data-correct="true"  onclick="pickOpt(this)">The principle requiring disclosure of all breaks in sterile technique, whether observed by others or not</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Following surgeon instructions even when they conflict with protocols</button>
+    <div class="quiz-feedback ok">&#10003; Correct! Surgical conscience is the guiding ethical principle that requires ST's to self-report breaks in sterile technique for the benefit of the patient — regardless of whether anyone else observed the break.</div>
+    <div class="quiz-feedback no">&#10007; Incorrect. Surgical conscience is the principle requiring a surgical technologist to disclose all breaks in sterile technique, whether observed by others or not, for the benefit of the patient.</div>
+  </div>
+
+  <div class="quiz-q">
+    <p>5. Koch's Postulates were developed to accomplish which of the following?</p>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Establish sterilization criteria for surgical instruments</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Prove that spontaneous generation does not occur</button>
+    <button class="quiz-opt" data-correct="true"  onclick="pickOpt(this)">Link a specific microorganism to a specific disease through experimental steps</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Classify bacteria into Gram-positive and Gram-negative categories</button>
+    <div class="quiz-feedback ok">&#10003; Correct! Koch's Postulates provide a set of criteria to experimentally establish that a specific microorganism is the causative agent of a specific disease — still used in microbiology labs today.</div>
+    <div class="quiz-feedback no">&#10007; Incorrect. Koch's Postulates are experimental criteria used to definitively link a specific microorganism to a specific disease.</div>
+  </div>
+
+  <div class="quiz-q">
+    <p>6. Standard Precautions apply to which patients in healthcare settings?</p>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Only patients with confirmed infectious diseases</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Only patients who are immunocompromised</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Only patients undergoing invasive surgical procedures</button>
+    <button class="quiz-opt" data-correct="true"  onclick="pickOpt(this)">All patients, regardless of suspected or confirmed infection status</button>
+    <div class="quiz-feedback ok">&#10003; Correct! Standard Precautions apply to ALL patients in ALL healthcare settings, regardless of known infection status — treating all blood, body fluids, non-intact skin, and mucous membranes as potentially infectious.</div>
+    <div class="quiz-feedback no">&#10007; Incorrect. Standard Precautions apply to ALL patients regardless of their suspected or confirmed infection status — the foundational principle of universal protection.</div>
+  </div>
+
+  <div class="quiz-q">
+    <p>7. June Almeida is historically significant because she was the first to:</p>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Develop streptomycin for treatment of tuberculosis</button>
+    <button class="quiz-opt" data-correct="true"  onclick="pickOpt(this)">Identify the coronavirus using electron microscopy in 1964</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Receive a PhD in bacteriology as an African-American woman</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Develop the technique of pasteurization for milk safety</button>
+    <div class="quiz-feedback ok">&#10003; Correct! June Almeida, a largely self-taught laboratory technician, first identified the coronavirus in 1964 — the same type of viral pathogen responsible for COVID-19.</div>
+    <div class="quiz-feedback no">&#10007; Incorrect. June Almeida was the first person to identify the coronavirus, which she did in 1964 using the electron microscope and her technique of using antibodies to visualize viruses.</div>
+  </div>
+
+  <div class="quiz-q">
+    <p>8. PPE in the surgical setting is described as providing protection in which direction(s)?</p>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">One-way barrier — protecting only the healthcare worker</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">One-way barrier — protecting only the patient</button>
+    <button class="quiz-opt" data-correct="true"  onclick="pickOpt(this)">Two-way barrier — protecting both the healthcare worker and the patient</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">PPE is worn for regulatory compliance only, not actual barrier protection</button>
+    <div class="quiz-feedback ok">&#10003; Correct! PPE provides a two-way barrier — protecting healthcare workers from patients AND protecting patients from healthcare workers. This bidirectional protection is central to Standard Precautions.</div>
+    <div class="quiz-feedback no">&#10007; Incorrect. PPE in the OR provides a two-way barrier — protecting both the healthcare worker from patients and patients from healthcare workers.</div>
+  </div>
+
+  <div class="quiz-q">
+    <p>9. Francesco Redi's experiments with decaying meat in sealed vs. open jars were designed to challenge which theory?</p>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">The Germ Theory of Disease</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Cell Theory</button>
+    <button class="quiz-opt" data-correct="true"  onclick="pickOpt(this)">Abiogenesis (spontaneous generation)</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">The Germ Theory of Fermentation</button>
+    <div class="quiz-feedback ok">&#10003; Correct! Redi designed his 1668 experiment to disprove abiogenesis — the belief that life spontaneously originates from nonliving matter. His experiments showed maggots only appeared on meat exposed to the air (and flies), not in sealed containers.</div>
+    <div class="quiz-feedback no">&#10007; Incorrect. Redi's experiments challenged abiogenesis — the widely held belief that life could spontaneously arise from nonliving substances like decaying meat.</div>
+  </div>
+
+  <div class="quiz-q">
+    <p>10. The 2019 update to CDC Standard Precautions added which new requirement specifically for patient protection during lumbar puncture or epidural procedures?</p>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Double-gloving for all OR personnel</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">N95 respirators for all spinal surgery cases</button>
+    <button class="quiz-opt" data-correct="true"  onclick="pickOpt(this)">Masks worn during catheter insertion or injection into spinal or epidural spaces</button>
+    <button class="quiz-opt" data-correct="false" onclick="pickOpt(this)">Full-body suits for procedures involving CSF</button>
+    <div class="quiz-feedback ok">&#10003; Correct! The 2019 updated Standard Precautions added the requirement for masks during insertion of catheters or injection of material into spinal or epidural spaces (myelograms, spinal/epidural anesthesia) — focused on patient protection.</div>
+    <div class="quiz-feedback no">&#10007; Incorrect. The 2019 update added the requirement to wear masks during insertion of catheters or injection into spinal/epidural spaces — a patient-focused addition to Standard Precautions.</div>
+  </div>
+
+  <button id="submit-quiz" onclick="submitQuiz()">Submit Quiz</button>
+  <div id="quiz-score"></div>
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-bar button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function pickOpt(btn) {
+  const q = btn.closest('.quiz-q');
+  if (q.dataset.answered) return;
+  q.dataset.answered = '1';
+  const correct = btn.dataset.correct === 'true';
+  btn.classList.add(correct ? 'correct' : 'wrong');
+  if (!correct) {
+    q.querySelectorAll('.quiz-opt[data-correct="true"]').forEach(b => b.classList.add('correct'));
+  }
+  const fbs = q.querySelectorAll('.quiz-feedback');
+  fbs[correct ? 0 : 1].classList.add('show');
+  q.querySelectorAll('.quiz-opt').forEach(b => b.style.pointerEvents = 'none');
+}
+
+function submitQuiz() {
+  const questions = document.querySelectorAll('.quiz-q');
+  let score = 0, answered = 0;
+  questions.forEach(q => {
+    if (q.dataset.answered) {
+      answered++;
+      const chosen = q.querySelector('.quiz-opt.correct, .quiz-opt.wrong');
+      if (chosen && chosen.classList.contains('correct') && chosen.dataset.correct === 'true') score++;
+    }
+  });
+  const scoreDiv = document.getElementById('quiz-score');
+  scoreDiv.style.display = 'block';
+  const pct = Math.round((score/10)*100);
+  let msg = pct >= 90 ? '&#127942; Excellent! Board-exam ready on this material.' :
+            pct >= 70 ? '&#128077; Good work. Review the questions you missed.' :
+            '&#128218; Review Chapter 1 and try again — focus on the Key Terms and Pioneers tabs.';
+  scoreDiv.innerHTML = `Score: ${score} / 10 &nbsp;(${pct}%)&nbsp; &mdash; &nbsp;${msg}`;
+}
+</script>
+
+</body>
+</html>
